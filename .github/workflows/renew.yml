@@ -1,4 +1,4 @@
-name: Read renewlist.json and Access URLs
+name: 自动续时蓝天云
 
 on:
   push:
