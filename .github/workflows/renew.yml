@@ -16,15 +16,15 @@ jobs:
     - name: Checkout repository
       uses: actions/checkout@v2
 
-    - name: Read renewlist.json and Access URLs
+    - name: 从文件读取需要续费的ID
       run: |
         sudo apt-get update && sudo apt-get install -y jq
-
+        echo "211.101.232.180 action.0idc.net" | sudo tee -a /etc/hosts
         renew_list=$(jq -r '.[]' renewid.json)
 
         for hid in $renew_list; do
           echo "即将续费ID: $hid"
-          url="https://lantian.pro/addons?_plugin=3&_controller=index&_action=addhelp&hid=$hid"
+          url="http://action.0idc.net/addons?_plugin=3&_controller=index&_action=addhelp&hid=$hid"
           response=$(curl -s "$url")
           echo "内容返回 $hid: $response"
         done
