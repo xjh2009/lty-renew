@@ -1,0 +1,30 @@
+name: Read renewlist.json and Access URLs
+
+on:
+  push:
+    branches:
+      - main
+  schedule:
+    - cron: '0 22 * * *' # 每天一次，UTC 时间晚上 10 点运行（即北京时间早上 6 点）
+  workflow_dispatch:
+
+jobs:
+  read-and-access:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout repository
+      uses: actions/checkout@v2
+
+    - name: Read renewlist.json and Access URLs
+      run: |
+        sudo apt-get update && sudo apt-get install -y jq
+
+        renew_list=$(jq -r '.[]' renewid.json)
+
+        for hid in $renew_list; do
+          echo "即将续费ID: $hid"
+          url="https://lantian.pro/addons?_plugin=3&_controller=index&_action=addhelp&hid=$hid"
+          response=$(curl -s "$url")
+          echo "内容返回 $hid: $response"
+        done
