@@ -18,13 +18,13 @@ jobs:
 
     - name: 从文件读取需要续费的ID
       run: |
-        sudo apt-get update && sudo apt-get install -y jq
-        echo "211.101.232.180 action.0idc.net" | sudo tee -a /etc/hosts
+        sudo apt-get install -y jq
+        echo "111.180.188.81 lantian.simpfun.cn" | sudo tee -a /etc/hosts
         renew_list=$(jq -r '.[]' renewid.json)
 
         for hid in $renew_list; do
           echo "即将续费ID: $hid"
-          url="http://action.0idc.net/addons?_plugin=3&_controller=index&_action=addhelp&hid=$hid"
+          url="http://lantian.simpfun.cn/addons?_plugin=3&_controller=index&_action=addhelp&hid=$hid"
           response=$(curl -s "$url")
           echo "内容返回 $hid: $response"
         done
