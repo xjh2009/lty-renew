@@ -19,12 +19,16 @@ jobs:
     - name: 从文件读取需要续费的ID
       run: |
         sudo apt-get install -y jq
-        echo "111.180.188.81 lantian.simpfun.cn" | sudo tee -a /etc/hosts
+        echo "211.101.232.180 lantian.simpfun.cn" | sudo tee -a /etc/hosts
         renew_list=$(jq -r '.[]' renewid.json)
 
         for hid in $renew_list; do
           echo "即将续费ID: $hid"
           url="http://lantian.simpfun.cn/addons?_plugin=3&_controller=index&_action=addhelp&hid=$hid"
           response=$(curl -s "$url")
+          if echo "$response" | grep -q '请到期前两天再来续时哦'; then
+            echo "ID $hid 未到期"
+          else
           echo "内容返回 $hid: $response"
+          fi
         done
