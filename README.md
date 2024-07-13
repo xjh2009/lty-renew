@@ -35,3 +35,4 @@ renewid.json文件，添加你的产品ID
 
 ## 相关项目
 [海绵联机自动签到](https://github.com/xjh2009/hmmc-renew)
+[雨云自动续费](https://github.com/xjh2009/rainyun-renew)
