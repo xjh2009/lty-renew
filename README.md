@@ -32,3 +32,6 @@ renewid.json文件，添加你的产品ID
 ### 定时执行
 修改/.github/workflows/renew.yaml文件 <br>
 每日北京时间6点自动续费<br>
+
+## 相关项目
+[海绵联机自动签到](https://github.com/xjh2009/hmmc-renew)
