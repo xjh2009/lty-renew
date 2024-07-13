@@ -7,7 +7,7 @@ B站，抖音，名字不一，转载请注明作者<br>
 
 ## Tips
 
-因为蓝天云使用的是CloudFlareCDN会导致星穷CDN的国内CDN节点无法向蓝天云请求内容<br>
+因为蓝天云使用的是CloudFlareCDN会导致Github节点无法向蓝天云请求内容<br>
 所以运行时可能会导致无法续费<br>
 如果你拥有闲置的国内CDN/虚拟主机/服务器也可以提供给我们用于维护这个项目
 
@@ -34,5 +34,6 @@ renewid.json文件，添加你的产品ID
 每日北京时间6点自动续费<br>
 
 ## 相关项目
-[海绵联机自动签到](https://github.com/xjh2009/hmmc-renew)
-[雨云自动续费](https://github.com/xjh2009/rainyun-renew)
+[自动签到/续费合集](https://github.com/xjh2009/all-sign-renew)<br>
+[海绵联机自动签到](https://github.com/xjh2009/hmmc-renew)<br>
+[雨云自动续费](https://github.com/xjh2009/rainyun-renew)<br>
